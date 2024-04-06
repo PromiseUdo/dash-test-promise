@@ -12,7 +12,7 @@ const MobileSearchBar = () => {
         style={{
           paddingLeft: "12px",
           paddingRight: "12px",
-          height: "30px",
+          height: "33px",
         }}
       />{" "}
     </div>
