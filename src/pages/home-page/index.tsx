@@ -5,7 +5,7 @@ import NoScroll from "./components/NoScroll";
 const HomePage = () => {
   return (
     <div className=" ">
-      <NoScroll active={true} />
+      {/* <NoScroll active={true} /> */}
       <HeroSection />
     </div>
   );
