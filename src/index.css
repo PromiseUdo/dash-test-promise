@@ -19,11 +19,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.slick-slide > div {
+  margin: 0 4px;
+}
 
 :root {
   --shades-blue: #3366ff;
   /* --shades-blue: #0a081a; */
   --shades-black: #101012;
+  --shades-black-2: #1e1e1e;
   --shades-white: #ffffff;
   --shades-gray-3: #8f95b2;
   --shades-gray-2: #d4dcf1;
@@ -34,6 +38,7 @@ body {
   --shades-goldenrod-3: #f5e9cb;
   --shades-goldenrod-2: #a07c22;
   --shades-goldenrod-1: #594510;
+  --shades-blue-4: #f2f6fd;
   --shades-blue-3: #d1e4fa;
   --shades-blue-2: #2863b8;
   --shades-blue-1: #1f4781;
@@ -44,6 +49,7 @@ body {
   --shades-dark-brown-1: #5f380e;
   --shades-dark-brown-2: #b26d22;
   --shades-dark-brown-3: #f3dfcc;
+  --border-color: #d9d9d9;
   --border: #d9d9d980;
   --shadow: 0 4px 24px #0404040d;
   --overlay: blur(8px);

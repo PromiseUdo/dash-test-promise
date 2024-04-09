@@ -15,6 +15,7 @@ module.exports = {
         primary: "var(--shades-blue)",
         // secondary: "var(--shades-red)",
         "shades-black": "var(--shades-black)",
+        "shades-black-2": "var(--shades-black-2)",
         "shades-white": "var(--shades-white)",
         "shades-gray-3": "var(--shades-gray-3)",
         "shades-gray-2": "var(--shades-gray-2)",
@@ -25,6 +26,7 @@ module.exports = {
         "shades-goldenrod-3": "var(--shades-goldenrod-3)",
         "shades-goldenrod-2": "var(--shades-goldenrod-2)",
         "shades-goldenrod-1": "var(--shades-goldenrod-1)",
+        "shades-blue-4": "var(--shades-blue-4)",
         "shades-blue-3": "var(--shades-blue-3)",
         "shades-blue-1": "var(--shades-blue-1)",
         "shades-blue-2": "var(--shades-blue-2)",
@@ -38,6 +40,7 @@ module.exports = {
 
         text: "var(--shades-gray-1)",
         border: "var(--border)",
+        "border-color": "var(--border-color)",
         shadow: "var(--shadow)",
       },
     },

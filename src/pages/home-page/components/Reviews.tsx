@@ -106,10 +106,10 @@ const reviews = [
 ];
 const Reviews = () => {
   return (
-    <div className="relative pt-16 p-1   w-[506px]  h-[100vh] bg-dash-shades-gray-1 overflow-hidden  overflow-y-auto ">
+    <div className=" relative pt-16 p-1 w-full  lg:w-[506px]  h-[100vh] bg-dash-shades-gray-1 overflow-hidden  overflow-y-auto ">
       <Overlay />
 
-      <div className="relative grid grid-cols-1  lg:grid-cols-2  gap-[24px] w-full h-full overflow-auto scrollbar-hide z-20">
+      <div className="mx-auto relative grid grid-cols-1 sm:grid-cols-2  gap-[24px] w-full h-full overflow-auto scrollbar-hide z-20">
         {/* <div className="grid grid-cols-2 gap-[24px] w-full"> */}
         {reviews.map((review, idx) => (
           <ReviewCard

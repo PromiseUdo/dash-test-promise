@@ -1,6 +1,6 @@
 import Logo from "../../../common/logo";
 import React from "react";
-import UserInfo from "./UserInfo";
+import UserInfo from "../../components/UserInfo";
 
 const Header = () => {
   return (

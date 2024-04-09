@@ -9,7 +9,7 @@ import React, {
 // import CircularProgress from "../spinners/CircularProgress";
 // import LazySpinner from "../spinners/LazySpinner";
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "outlined";
 //   | "empty"
 //   | "hollow"
 //   | "cancel"
@@ -36,8 +36,8 @@ const classesMap: Record<Variant, string> = {
   //   hollow:
   //     "h-[37px] px-4 py-1 gap-2 bg-[#CCECEF26] text-jaa-teal-100 hover:text-jaa-teal-80 disabled:text-jaa-shades-gray-3",
   //   cancel: "bg-[#F7F7F7] text-jaa-shades-black sm active:scale-95",
-  //   outlined:
-  //     "border border-[#E2E7E9] h-8 py-1 px-6 flex justify-center items-center sm",
+  outlined:
+    "border border-dash-primary h-8 py-1 px-6 flex justify-center items-center sm",
 };
 function Button({
   label,
