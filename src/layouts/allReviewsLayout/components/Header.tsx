@@ -7,6 +7,8 @@ import Typography from "@/common/Typograhpy";
 import Button from "@/common/button";
 import Slider from "react-slick";
 import { useReviewContext } from "@/context/ReviewContext";
+import { PiBookmarkSimpleLight } from "react-icons/pi";
+import { PiShareNetworkLight } from "react-icons/pi";
 
 const places = [
   "Schools",
@@ -88,7 +90,7 @@ const Header = () => {
           />
         </div>
 
-        <UserInfo className="hidden md:block" />
+        <UserInfo className="hidden md:block " />
       </div>
       <div className="gap-[4px] md:gap-[0] flex flex-col lg:flex-row items-start lg:items-center justify-between">
         {/* left */}
@@ -122,21 +124,28 @@ const Header = () => {
         <div className="flex items-center gap-[16px]">
           <Button
             onClick={handleReviewClick}
-            className=" py-[8px] px-[25px] h-[40px] lg:h-[50px] lg:py-[16px] lg:px-[40px] uppercase rounded-[6px] text-[14px] lg:text-[16px] font-[500] leading-[19.36px]"
+            className=" py-[8px] px-[25px] h-[35px] lg:h-[50px] lg:py-[16px] lg:px-[40px] uppercase rounded-[6px] text-[12px] lg:text-[16px] font-[500] leading-[19.36px]"
             label="Leave a review"
             variant="primary"
           />
 
-          <Button
-            label={<iconComponents.util.BookmarkIcon />}
+          <button className=" border-dash-primary rounded-md   sm flex items-center justify-center h-[35px] md:h-[50px] w-[56px] p-0 border-[1.5px]">
+            <PiBookmarkSimpleLight color="#3366ff" />
+          </button>
+          <button className=" border-dash-primary rounded-md sm flex items-center justify-center h-[35px] md:h-[50px] w-[56px] p-0 border-[1.5px]">
+            <PiShareNetworkLight color="#3366ff" />
+          </button>
+
+          {/* <Button
+            label={<PiBookmarkSimpleLight color="#3366ff" />}
             variant="outlined"
-            className=" h-[40px] md:h-[50px] w-[56px] px-0 border-[1.5px]"
-          />
-          <Button
-            label={<iconComponents.util.ShareIcon />}
+            className=" h-[35px] md:h-[50px] w-[46px] p-0 border-[1.5px]"
+          /> */}
+          {/* <Button
+            label={<PiShareNetworkLight color="#3366ff" />}
             variant="outlined"
-            className=" h-[40px] lg:h-[50px] w-[56px] px-0 border-[1.5px]"
-          />
+            className=" h-[35px] lg:h-[50px]  md:w-[56px] p-0 border-[1.5px]"
+          /> */}
         </div>
       </div>
 
