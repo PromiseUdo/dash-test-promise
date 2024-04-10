@@ -67,7 +67,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
         <div>
           <Typography
             as="p"
-            className="font-[400] leading-[24px] text-[16px] text-[#18181b]"
+            className="font-[400] leading-[24px] text-[14px] md:text-[16px] text-[#18181b]"
           >
             {comment}
           </Typography>
@@ -80,7 +80,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
           <iconComponents.util.ThumbsUpUtilIcon color="#0d2159" />
           <Typography
             as="p"
-            className="text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
+            className="text-[11px] md:text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
           >
             {upVotes}
           </Typography>
@@ -89,7 +89,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
           <iconComponents.util.ThumbsDownUtilIcon color="#0d2159" />
           <Typography
             as="p"
-            className="text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
+            className="text-[11px] md:text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
           >
             {downVotes}
           </Typography>
@@ -98,7 +98,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
           <iconComponents.util.ChatUtilIcon color="#0d2159" />
           <Typography
             as="p"
-            className="text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
+            className="text-[11px] md:text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
           >
             {commentCount}
           </Typography>
