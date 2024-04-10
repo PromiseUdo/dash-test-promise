@@ -2,7 +2,29 @@ import Avatar from "@/common/Avatar";
 import Typography from "@/common/Typograhpy";
 import React from "react";
 import iconComponents from "@/assets/icons/iconComponents";
-const ReviewCard = () => {
+interface ReviewCardProps {
+  author: string;
+  image: string | null;
+  timeAgo: string;
+  rating: string;
+  comment: string;
+  upVotes: string;
+  downVotes: string;
+  commentCount: string;
+  admin?: boolean;
+}
+
+const ReviewCard: React.FC<ReviewCardProps> = ({
+  author,
+  image,
+  timeAgo,
+  rating,
+  comment,
+  upVotes,
+  downVotes,
+  commentCount,
+  admin,
+}) => {
   return (
     <div className="h-[143px] w-full ">
       {/* top */}
@@ -15,16 +37,19 @@ const ReviewCard = () => {
                 as="p"
                 className="font-[400] text-[14px] leading-[16.1px]"
               >
-                James T.
+                {author}
               </Typography>
-              <Typography className="text-dash-shades-black-2 font-[700] text-[14px] leading-[16.1px]">
-                (Admin)
-              </Typography>
+              {admin && (
+                <Typography className="text-dash-shades-black-2 font-[700] text-[14px] leading-[16.1px]">
+                  (Admin)
+                </Typography>
+              )}
+
               <Typography
                 as="p"
                 className="text-[#1e1e1e60] text-[14px] leading-[16.1px] font-[400]"
               >
-                5 months ago
+                {timeAgo}
               </Typography>
             </div>
           </div>
@@ -35,7 +60,7 @@ const ReviewCard = () => {
               as="p"
               className="font-[400] text-[14px] leading-[16.1px] text-dash-shades-black-2"
             >
-              4.0
+              {rating}
             </Typography>
           </div>
         </div>
@@ -44,10 +69,7 @@ const ReviewCard = () => {
             as="p"
             className="font-[400] leading-[24px] text-[16px] text-[#18181b]"
           >
-            There is no stable electricity. The roads are fairly good and there
-            is a sense of community. The drainage system is poor and most
-            residents litter their surroundings. There are several grocery
-            stores and Supermarkets.
+            {comment}
           </Typography>
         </div>
       </div>
@@ -60,7 +82,7 @@ const ReviewCard = () => {
             as="p"
             className="text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
           >
-            1224
+            {upVotes}
           </Typography>
         </div>
         <div className="flex items-center gap-1">
@@ -69,7 +91,7 @@ const ReviewCard = () => {
             as="p"
             className="text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
           >
-            1224
+            {downVotes}
           </Typography>
         </div>
         <div className="flex items-center gap-1">
@@ -78,7 +100,7 @@ const ReviewCard = () => {
             as="p"
             className="text-[14px] font-[400] leading-[16.1px] text-[#0d2159]"
           >
-            1224
+            {commentCount}
           </Typography>
         </div>
       </div>

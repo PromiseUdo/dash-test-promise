@@ -5,6 +5,7 @@ import "./styles.css";
 import { useReviewContext } from "@/context/ReviewContext";
 import { useToggleState } from "@/hooks/useToggleState";
 import AddReview from "./components/AddReview";
+import { useReviewsContext } from "@/context/ReviewsListContext";
 const images = [
   "/location1.jfif",
   "/location2.jfif",
@@ -12,7 +13,21 @@ const images = [
   "/location4.jfif",
 ];
 
-const reviews = [1, 2, 3, 4, 5, 6];
+// const reviews = [
+//   {
+//     author: "James T.",
+//     image: "/reviewer.jfif",
+//     timeAgo: "5 months ago",
+//     rating: "4.0",
+//     comment:
+//       "There is no stable electricity. The roads are fairly good and there is a sense of community. The drainage system is poor and most residents litter their surroundings. There are several grocery stores and Supermarkets.",
+//     upVotes: "1224",
+//     downVotes: "4",
+//     commentCount: "24",
+//     admin: true,
+//   },
+// ];
+
 const AllReviewsPage = () => {
   const { reviewClicked } = useReviewContext();
 
@@ -23,6 +38,7 @@ const AllReviewsPage = () => {
     open: openAddReviewModal,
     close: closeAddReviewModal,
   } = useToggleState(false);
+  const { reviews } = useReviewsContext();
 
   return (
     <div className="w-full grid grid-cols-12 gap-[28px]">
@@ -31,7 +47,7 @@ const AllReviewsPage = () => {
       <div className="col-span-8  w-full h-full">
         {reviews.map((item, idx) => (
           <div key={idx}>
-            <ReviewCard />
+            <ReviewCard {...item} />
             {idx !== reviews.length - 1 && (
               <div className="border-b border-dash-border-color"></div>
             )}

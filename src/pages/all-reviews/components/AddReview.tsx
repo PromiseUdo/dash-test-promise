@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Modal from "@/common/modal/Modal";
@@ -10,14 +10,37 @@ import iconComponents from "@/assets/icons/iconComponents";
 import RateLocation from "@/common/inputs/RateLocation";
 import Button from "@/common/button";
 import { useReviewContext } from "@/context/ReviewContext";
+import { useReviewsContext } from "@/context/ReviewsListContext";
+import { Rating } from "@mui/material";
+import Typography from "@/common/Typograhpy";
+import toast from "react-hot-toast";
+import moment from "moment";
 type IRequestTour = {
   open: boolean;
   onClose: () => void;
 };
+
+const amenities = [
+  "Parking Lot",
+  "Free Wi-Fi",
+  "Nightlife",
+  "Hospitals",
+  "Adult Home",
+  "Schools",
+  "Pet Store",
+  "Childcare",
+  "Gym",
+  "Security",
+  "Adult Home",
+  "Schools",
+];
+
 const AddReview = (props: IRequestTour) => {
   const { open, onClose } = props;
   const { handleCloseReviewClick } = useReviewContext();
-
+  const { addReview } = useReviewsContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isReviewAdded, setIsReviewAdded] = useState(false);
   const {
     register,
     handleSubmit,
@@ -27,15 +50,48 @@ const AddReview = (props: IRequestTour) => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      time: "",
-      date: "",
-      phone: "",
-      email: "",
-      name: "",
+      comment: "",
+      rating: "",
+      amenities: [],
+      anonymous: true,
+      timeAgo: "",
     },
   });
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldTouch: true,
+      shouldDirty: true,
+      shouldValidate: true,
+    });
+  };
 
-  // Function to get an array of 7 days starting from tomorrow
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    // console.log(data);
+    setIsLoading(true);
+    addReview({
+      author: "anonymous",
+      image: null,
+      timeAgo: moment(Date.now()).fromNow(),
+      upVotes: "123",
+      downVotes: "2",
+      rating: data.rating,
+      comment: data.comment,
+      commentCount: "4",
+      admin: false,
+    });
+
+    console.log(data);
+    setIsReviewAdded(true);
+    handleCloseReviewClick();
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    if (isReviewAdded) {
+      reset();
+      setIsReviewAdded(false);
+    }
+  }, [isReviewAdded]);
 
   return (
     <Modal variant="md" onClose={onClose} open={open}>
@@ -47,6 +103,7 @@ const AddReview = (props: IRequestTour) => {
         />
         {/* Render the days in your component */}
         <AmenitiesSelect
+          amenities={amenities}
           id="amenitiesSelect"
           style={{
             background: "#F3F7FE",
@@ -60,11 +117,27 @@ const AddReview = (props: IRequestTour) => {
           }}
           right={<iconComponents.util.ArrowDownIcon />}
         />
-        <RateLocation />
+
+        <div className="flex flex-col gap-[14px]">
+          <Typography
+            as="p"
+            className="font-[400] text-[14px] text-dash-shades-black-2 leading-[16.94px]"
+          >
+            Rate location
+          </Typography>
+          <div>
+            <Rating
+              name="simple-controlled"
+              onChange={(event, newValue) => {
+                setCustomValue("rating", newValue);
+              }}
+            />
+          </div>
+        </div>
 
         <TextArea
           label="Write Review"
-          id="reviewText"
+          id="comment"
           placeholder="Add review"
           register={register}
           errors={errors}
@@ -83,6 +156,7 @@ const AddReview = (props: IRequestTour) => {
 
         <div className="flex items-center gap-[24px] justify-center">
           <Button
+            onClick={handleSubmit(onSubmit)}
             label="Submit"
             variant="primary"
             className="capitalize w-full"
