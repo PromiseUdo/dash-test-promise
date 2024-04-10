@@ -2,6 +2,9 @@ import React from "react";
 import ReviewCard from "./components/ReviewCard";
 import Typography from "@/common/Typograhpy";
 import "./styles.css";
+import { useReviewContext } from "@/context/ReviewContext";
+import { useToggleState } from "@/hooks/useToggleState";
+import AddReview from "./components/AddReview";
 const images = [
   "/location1.jfif",
   "/location2.jfif",
@@ -11,6 +14,16 @@ const images = [
 
 const reviews = [1, 2, 3, 4, 5, 6];
 const AllReviewsPage = () => {
+  const { reviewClicked } = useReviewContext();
+
+  console.log(reviewClicked);
+
+  const {
+    state: isAddReviewModalOpen,
+    open: openAddReviewModal,
+    close: closeAddReviewModal,
+  } = useToggleState(false);
+
   return (
     <div className="w-full grid grid-cols-12 gap-[28px]">
       {/* <NoScroll active={true} /> */}
@@ -44,6 +57,7 @@ const AllReviewsPage = () => {
           </div>
         ))}
       </div>
+      <AddReview open={reviewClicked} onClose={closeAddReviewModal} />
     </div>
   );
 };

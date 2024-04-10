@@ -10,6 +10,7 @@ import { ReactComponent as ShareIcon } from "./util/share.svg";
 import { ReactComponent as ThumbsUpUtilIcon } from "./util/thumbsUp.svg";
 import { ReactComponent as ThumbsDownUtilIcon } from "./util/thumbsDown.svg";
 import { ReactComponent as ChatUtilIcon } from "./util/chat.svg";
+import { ReactComponent as ArrowDownIcon } from "./util/arrowdown.svg";
 
 const iconComponents = {
   util: {
@@ -22,6 +23,7 @@ const iconComponents = {
     ThumbsUpUtilIcon,
     ThumbsDownUtilIcon,
     ChatUtilIcon,
+    ArrowDownIcon,
   },
   review: {
     ThumbsUpIcon,

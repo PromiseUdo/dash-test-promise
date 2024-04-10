@@ -6,6 +6,7 @@ import iconComponents from "@/assets/icons/iconComponents";
 import Typography from "@/common/Typograhpy";
 import Button from "@/common/button";
 import Slider from "react-slick";
+import { useReviewContext } from "@/context/ReviewContext";
 
 const places = [
   "Schools",
@@ -64,6 +65,8 @@ var settings = {
 };
 
 const Header = () => {
+  const { handleReviewClick } = useReviewContext();
+
   return (
     <div className="px-[100px] py-[16px] h-full flex flex-col gap-[14px] w-full bg-dash-shades-blue-4 ">
       <div className="flex items-center justify-between ">
@@ -115,6 +118,7 @@ const Header = () => {
         {/* right */}
         <div className="flex items-center gap-[16px]">
           <Button
+            onClick={handleReviewClick}
             className="uppercase rounded-[6px] text-[16px] font-[500] leading-[19.36px]"
             label="Leave a review"
             variant="primary"
