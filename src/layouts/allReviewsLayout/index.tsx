@@ -11,7 +11,7 @@ const AllReviewsLayout = () => {
       <div className=" h-[195px]   fixed z-[80] top-0  left-0 right-0 max-w-[100vw]">
         <Header />
       </div>
-      <main className="w-full mt-[250px] flex-grow ">
+      <main className="w-full mt-[265px] flex-grow ">
         <Outlet />
       </main>
     </div>

@@ -124,7 +124,7 @@ const Header = () => {
         <div className="flex items-center gap-[14px] md:gap-[16px]">
           <Button
             onClick={handleReviewClick}
-            className=" py-[8px] !px-[15px] h-[35px] lg:h-[50px] lg:py-[16px] lg:px-[40px] uppercase rounded-[6px] text-[10px] lg:text-[16px] font-[500] leading-[19.36px]"
+            className=" py-[8px] !px-[15px] !h-[35px] md:h-[50px]  lg:py-[16px] lg:px-[40px] uppercase rounded-[6px] text-[10px] lg:text-[16px] font-[500] leading-[19.36px]"
             label="Leave a review"
             variant="primary"
           />
