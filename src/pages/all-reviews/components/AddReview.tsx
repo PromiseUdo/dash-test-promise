@@ -67,6 +67,7 @@ const AddReview = (props: IRequestTour) => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     // console.log(data);
+    toast("Adding review. Please wait...");
     setIsLoading(true);
     addReview({
       author: "anonymous",
@@ -84,6 +85,7 @@ const AddReview = (props: IRequestTour) => {
     setIsReviewAdded(true);
     handleCloseReviewClick();
     setIsLoading(false);
+    toast.success("Review added succesfully!");
   };
 
   useEffect(() => {

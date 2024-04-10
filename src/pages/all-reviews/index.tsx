@@ -1,11 +1,12 @@
 import React from "react";
 import ReviewCard from "./components/ReviewCard";
 import Typography from "@/common/Typograhpy";
-import "./styles.css";
 import { useReviewContext } from "@/context/ReviewContext";
 import { useToggleState } from "@/hooks/useToggleState";
 import AddReview from "./components/AddReview";
 import { useReviewsContext } from "@/context/ReviewsListContext";
+import styles from "./styles.module.css";
+import clsx from "clsx";
 const images = [
   "/location1.jfif",
   "/location2.jfif",
@@ -44,7 +45,7 @@ const AllReviewsPage = () => {
     <div className="w-full grid grid-cols-12 gap-[28px]">
       {/* <NoScroll active={true} /> */}
 
-      <div className="col-span-8  w-full h-full">
+      <div className="col-span-12 sm:col-span-8   w-full h-full">
         {reviews.map((item, idx) => (
           <div key={idx}>
             <ReviewCard {...item} />
@@ -54,7 +55,12 @@ const AllReviewsPage = () => {
           </div>
         ))}
       </div>
-      <div className="images-container col-span-4  gap-[16px]">
+      <div
+        className={clsx(
+          "hidden sm:grid  col-span-4  gap-[16px]",
+          styles.imagesContainer
+        )}
+      >
         {images.map((image, idx) => (
           <div
             className=" relative rounded-[8px] overflow-hidden h-[224px]"

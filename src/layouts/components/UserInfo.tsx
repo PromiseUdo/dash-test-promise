@@ -2,12 +2,18 @@ import Typography from "@/common/Typograhpy";
 import clsx from "clsx";
 import React from "react";
 
-const UserInfo = () => {
+interface UserInfoProps {
+  className?: string;
+}
+const UserInfo: React.FC<UserInfoProps> = ({ className }) => {
   return (
     <div className="flex items-center gap-[13px]">
       <Typography
         as="p"
-        className="text-dash-shades-black text-[16px] font-[500] leading-[10px]"
+        className={clsx(
+          "text-dash-shades-black text-[16px] font-[500] leading-[10px]",
+          className
+        )}
       >
         Welcome!
       </Typography>

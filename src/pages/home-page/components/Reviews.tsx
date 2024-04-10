@@ -2,6 +2,8 @@ import ReviewCard from "@/common/reviewsCard";
 import React from "react";
 import Overlay from "./Overlay";
 import "./styles.css";
+import styles from "../styles.module.css";
+import clsx from "clsx";
 const reviews = [
   {
     image: "/reviewer.jfif",
@@ -109,7 +111,12 @@ const Reviews = () => {
     <div className=" relative pt-16 p-1 w-full  lg:w-[506px]  h-[100vh] bg-dash-shades-gray-1 overflow-hidden  overflow-y-auto ">
       <Overlay />
 
-      <div className="mx-auto relative grid grid-cols-1 sm:grid-cols-2  gap-[24px] w-full h-full overflow-auto scrollbar-hide z-20">
+      <div
+        className={clsx(
+          "mx-auto relative w-full h-full overflow-auto scrollbar-hide z-20",
+          styles.reviewCard
+        )}
+      >
         {/* <div className="grid grid-cols-2 gap-[24px] w-full"> */}
         {reviews.map((review, idx) => (
           <ReviewCard
