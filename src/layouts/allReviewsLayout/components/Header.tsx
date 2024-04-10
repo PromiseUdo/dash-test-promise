@@ -70,9 +70,9 @@ const Header = () => {
   const { handleReviewClick } = useReviewContext();
 
   return (
-    <div className=" px-[20px] md:px-[60px] lg:px-[100px] py-[8px] md:py-[16px] h-full flex flex-col gap-[4px] md:gap-[14px] w-full bg-dash-shades-blue-4 ">
+    <div className=" px-[20px] md:px-[60px] lg:px-[100px] py-[8px] md:py-[16px]  flex flex-col gap-[4px] md:gap-[14px] w-full bg-dash-shades-blue-4 h-[fit-content]">
       <div className="flex items-center gap-[28px] justify-between ">
-        <div className="flex items-center gap-[8px] grow">
+        <div className="flex items-center  gap-[8px] grow">
           <Logo />
           <InputWithAdornment
             id="searchInput"
@@ -121,10 +121,10 @@ const Header = () => {
           </div>
         </div>
         {/* right */}
-        <div className="flex items-center gap-[16px]">
+        <div className="flex items-center gap-[14px] md:gap-[16px]">
           <Button
             onClick={handleReviewClick}
-            className=" py-[8px] px-[25px] h-[35px] lg:h-[50px] lg:py-[16px] lg:px-[40px] uppercase rounded-[6px] text-[12px] lg:text-[16px] font-[500] leading-[19.36px]"
+            className=" py-[8px] !px-[15px] h-[35px] lg:h-[50px] lg:py-[16px] lg:px-[40px] uppercase rounded-[6px] text-[10px] lg:text-[16px] font-[500] leading-[19.36px]"
             label="Leave a review"
             variant="primary"
           />
